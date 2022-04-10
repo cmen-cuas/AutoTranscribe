@@ -4,9 +4,13 @@
 <script type="text/javascript">
 
   $(document).ready(function () {
-    $("#chkTranslate").click(function () {
-      var val = $(this).prop('checked');
-      $("#chktrans").toggle();
+
+    if($("#transSelected").is(':checked') == false){
+      $("#divTranslate").hide();
+    }
+
+    $("#transSelected").click(function () {
+      $("#divTranslate").toggle(this.checked);
     });
   });
 </script>
@@ -15,13 +19,14 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
-  <title>Autotranscribe translate APi Demo</title>
-  <link rel="stylesheet" href="index.css">
+  <title>Auto-Transcription with translation APi Demo</title>
+  <link rel="stylesheet" href="index.css" />
 </head>
 
 <body>
   <h1>Autotranscribe and Translate</h1>
-  <form id="myform" action="speak-transcribe/transcribe.html" target="_new">
+
+  <form id="myform" action="./speak-transcribe/transcribe.html" target="_new">
 
     <label for="spokenlanguage">Choose Spoken Language</label>
     <select id="spokenlanguage" name="spokenlanguage">
@@ -31,13 +36,13 @@
       <option value="it-IT">Italian</option>
     </select>
     <br>
-    <label for="chkTranslate">Translate</label>
-    <input type="checkbox" id="chkTranslate" name="chkTranslate" value="chkTranslate" checked>
+    <label for="transSelected">Translate</label>
+    <input type="checkbox" id="transSelected" name="transSelected">
 
-
-    <div id="chktrans">
-      <label for="deeplkey">Access Key</label>
-      <input type="text" size="50px" id="deeplkey" name="deeplkey API Key"><br><br>
+    <br>
+    <div id="divTranslate">
+      <label for="deeplkey">DeepL API Access Key</label>
+      <input type="text" size="50px" id="deeplkey" name="deeplkey"><br>
 
       <label for="translanguage">Choose Translation Language</label>
       <select id="translanguage" name="translanguage">
@@ -49,7 +54,7 @@
       </select>
     </div>
     <br>
-    <input type="submit" value="Submit">
+    <input type="submit" value="Start Transcription">
   </form>
 </body>
 

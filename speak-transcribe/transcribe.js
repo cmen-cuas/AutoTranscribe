@@ -1,17 +1,13 @@
 //"use strict";
 
 const urlParams = new URLSearchParams(window.location.search);
-var deeplkey = urlParams.get('deeplkey');
+const token = urlParams.get('deeplkey');
 var translanguage = urlParams.get('translanguage');
 var spokenlanguage = urlParams.get('spokenlanguage');
 var chkTranslate = urlParams.get('chkTranslate');
 
-if (chkTranslate == "On") {
-  $("div").hide();
-}
-alert(`${deeplkey}, ${translanguage}, ${chkTranslate}, ${spokenlanguage}`);
-
-
+//alert(`${deeplkey}, ${translanguage}, ${chkTranslate}, ${spokenlanguage}`);
+let useTranslate = (chkTranslate === null) ? false : true;
 
 var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var SpeechGrammarList = SpeechGrammarList || webkitSpeechGrammarList;
@@ -27,7 +23,7 @@ var areaTranslation = document.querySelector('.translation');
 async function translateText(text2translate, lang) {
 
   const url = "https://api-free.deepl.com/v2/translate";
-  const token = "54cfddd9-5296-3646-2c47-6c4cfb56af89:fx";
+  const token = token; //"54cfddd9-5296-3646-2c47-6c4cfb56af89:fx";
 
   //alert(`in fun translateText: ${lang}`);
   let body = `auth_key=${token}&text=${text2translate}&target_lang=${lang}`;
@@ -41,8 +37,6 @@ async function translateText(text2translate, lang) {
   fetch(url, param)
     .then(response => response.json())
     .then(json => {
-      // handle success
-      //alert(json.areaTranslations[0].text);
       areaTranslation.textContent = json.translations[0].text;
     })
     .catch((error) => {
@@ -52,7 +46,7 @@ async function translateText(text2translate, lang) {
     });
 }
 
-function testSpeech() {
+function testSpeech(useTranslate) {
   areaSubtitle.textContent = " ";
   areaTranslation.textContent = " ";
 
@@ -67,8 +61,12 @@ function testSpeech() {
 
   recognition.onresult = function (event) {
     speechResult = event.results[0][0].transcript;
-    areaSubtitle.textContent = speechResult;
-    translateText(speechResult, translanguage.value)
+
+    if (useTranslate)
+      var rest = translateText(speechResult, translanguage.value);
+    else
+      areaSubtitle.textContent = speechResult;
+
     recognition.stop();
   }
 
@@ -89,5 +87,5 @@ function testSpeech() {
 
 }
 
-testSpeech();
+testSpeech(useTranslate);
 //btnTest.addEventListener('click', testSpeech);
