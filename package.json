@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "axios": "^0.26.1",
+    "jquery": "^3.6.0",
     "lite-server": "^2.6.1"
   },
   "scripts": {

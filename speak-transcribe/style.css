@@ -12,15 +12,6 @@ body {
   overflow: hidden;
 }
 
-
-button {
-  /* margin: 0 auto; */
-  /* display: block; */
-  font-size: 0.6em;
-  width: 100px;
-  margin-top: 10px;
-}
-
 @media all and (max-height: 410px) {
   div {
     position: static;
