@@ -37,7 +37,7 @@ async function translateText(text2translate, lang) {
   fetch(url, param)
     .then(response => response.json())
     .then(json => {
-      areaTranslation.textContent = json.translations[0].text;
+      areaSubtitle.textContent = json.translations[0].text;
     })
     .catch((error) => {
       // handle error
