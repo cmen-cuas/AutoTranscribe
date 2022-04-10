@@ -16,14 +16,12 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width">
   <title>Autotranscribe translate APi Demo</title>
-  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
   <h1>Autotranscribe and Translate</h1>
   <form id="myform" action="speak-transcribe/transcribe.html" target="_new">
-    <label for="deeplkey">Access Key</label>
-    <input type="text" id="deeplkey" name="deeplkey"><br><br>
 
     <label for="spokenlanguage">Choose Spoken Language</label>
     <select id="spokenlanguage" name="spokenlanguage">
@@ -38,6 +36,9 @@
 
 
     <div id="chktrans">
+      <label for="deeplkey">Access Key</label>
+      <input type="text" size="50px" id="deeplkey" name="deeplkey API Key"><br><br>
+
       <label for="translanguage">Choose Translation Language</label>
       <select id="translanguage" name="translanguage">
         <option value="DE">German</option>

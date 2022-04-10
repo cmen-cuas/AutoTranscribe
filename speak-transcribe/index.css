@@ -1,0 +1,12 @@
+
+html {
+  height: 100%;
+  font-size: 3em;
+  background-color: rgb(219, 71, 71);
+}
+
+body {
+  font-size: 4rem;
+  height: inherit;
+  overflow: hidden;
+}
