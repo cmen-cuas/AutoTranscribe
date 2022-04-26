@@ -66,7 +66,7 @@ async function translateText(text2translate, translanguage, token) {
 
   const url = "https://api-free.deepl.com/v2/translate";
   //const token = "54cfddd9-5296-3646-2c47-6c4cfb56af89:fx";
-  alert(token);
+
   let body = `auth_key=${token}&text=${text2translate}&target_lang=${translanguage}`;
 
   let param = {
@@ -86,6 +86,3 @@ async function translateText(text2translate, translanguage, token) {
       log(`error ${error}`);
     });
 }
-
-
-//btnTest.addEventListener('click', testSpeech);
