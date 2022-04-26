@@ -40,7 +40,7 @@ function testSpeech(spokenlanguage, useTranslate = false, translanguage="EN") {
   recognition.onresult = function (event) {
     speechResult = event.results[0][0].transcript;
     if (useTranslate) {
-      translateText(speechResult, translanguage);
+      translateText(speechResult, translanguage,token);
     }
     else
       areaSubtitle.textContent = speechResult;
