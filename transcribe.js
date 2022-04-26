@@ -6,7 +6,7 @@ var token = urlParams.get('deeplkey');
 var spokenlanguage = urlParams.get('spokenlanguage');
 var translanguage = urlParams.get('translanguage');
 var transSelected = urlParams.get('transSelected');
-//alert(`${token}, ${translanguage}, ${transSelected}, ${spokenlanguage}`);
+alert(`${token}, ${translanguage}, ${transSelected}, ${spokenlanguage}`);
 
 let useTranslate = (transSelected === "on") ? true : false;
 
