@@ -62,10 +62,10 @@ function testSpeech(spokenlanguage, useTranslate = false, translanguage="EN") {
 
 }
 
-async function translateText(text2translate, translanguage) {
+async function translateText(text2translate, translanguage,token) {
 
   const url = "https://api-free.deepl.com/v2/translate";
-  const token = "54cfddd9-5296-3646-2c47-6c4cfb56af89:fx";
+  //const token = "54cfddd9-5296-3646-2c47-6c4cfb56af89:fx";
 
   let body = `auth_key=${token}&text=${text2translate}&target_lang=${translanguage}`;
 
